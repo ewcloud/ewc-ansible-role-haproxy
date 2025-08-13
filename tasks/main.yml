@@ -46,6 +46,36 @@
     - docker
     - containerd
 
+- name: Create ha-proxy-certbot directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  loop:
+    - "/opt/ha-proxy-certbot"
+    - "/opt/ha-proxy-certbot/haproxy"
+    - "/opt/ha-proxy-certbot/haproxy/config"
+
+- name: Template docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "/opt/ha-proxy-certbot/docker-compose.yml"
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - Deploy ha-proxy-certbot compose
+
+- name: Template haproxy.cfg
+  ansible.builtin.template:
+    src: haproxy.cfg.j2
+    dest: /opt/ha-proxy-certbot/haproxy/config/haproxy.cfg
+    owner: root
+    group: root
+    mode: "0755"
+
 - name: Gather package facts
   ansible.builtin.package_facts:
     manager: auto

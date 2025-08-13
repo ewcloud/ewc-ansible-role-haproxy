@@ -1,0 +1,11 @@
+services:
+  haproxy:
+    restart: always
+    container_name: "haproxy-certbot"
+    image: thingsboard/haproxy-certbot:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./haproxy/config:/config
+      - ./haproxy/letsencrypt:/etc/letsencrypt
+      - ./haproxy/certs.d:/usr/local/etc/haproxy/certs.d

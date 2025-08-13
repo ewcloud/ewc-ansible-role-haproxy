@@ -1,0 +1,10 @@
+defaults
+  mode http
+  timeout client 10s
+  timeout connect 5s
+  timeout server 10s
+  timeout http-request 10s
+
+frontend myfrontend
+# Receive HTTP traffic on all IP addresses assigned to the server at port 80
+  bind *:80
