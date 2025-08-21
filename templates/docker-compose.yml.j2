@@ -2,7 +2,7 @@ services:
   haproxy:
     restart: always
     container_name: "haproxy-certbot"
-    image: thingsboard/haproxy-certbot:latest
+    image: thingsboard/haproxy-certbot:2.2.33-alpine3.18
     ports:
       - '80:80'
     volumes:
