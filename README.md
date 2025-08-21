@@ -5,9 +5,9 @@ This repository contains a configuration template
 to customize your environment in the
 [European Weather Cloud (EWC)](https://europeanweather.cloud/).
 The template is designed to:
-* Configure a pre-existing Ubuntu instance to run [HA Proxy](https://www.haproxy.org/),
+* Configure a pre-existing Ubuntu instance to run [HAProxy](https://www.haproxy.org/),
   a high-performance, open source load balancer and reverse proxy for TCP and Hypertext
-  Transfer Protocol (HTTP) applications, and enable users can use HA Proxy to distribute
+  Transfer Protocol (HTTP) applications, and enable users can use HAProxy to distribute
   workloads and improve website and application performance.
 
 ## Copyright and License
