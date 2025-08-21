@@ -24,6 +24,13 @@ all third-party components included in the environment.
 
 Contact [EUMETSAT](http://www.eumetsat.int) for details on the usage and distribution terms.
 
+## Authentication
+
+Before proceeding, if you lack OpenStack Application Credentials or do not know
+how to make them available to Ansible in your development environment, make sure
+to check out the 
+[EWC documentation](https://confluence.ecmwf.int/display/EWCLOUDKB/EWC+-+How+to+request+Openstack+Application+Credentials).
+
 ## Usage
 
 The step-by-step described below assume your local file system follows the 
@@ -53,7 +60,9 @@ ewcloud:
 ```
 ### 2. Customize the template
 
-Create an Ansible Playbook file to load your customizations: 
+Edit input values for the template [variables](./vars/main.yml) as needed (see
+[Inputs](#inputs) section for details).
+Then, proceed to create an Ansible Playbook file to load your customizations: 
 
 ```yaml
 # playbook.yml
@@ -75,11 +84,13 @@ You can apply changes on the target host by running:
 ansible-playbook -i inventory.yml playbook.yml
 ```
 
-## Final Environment
-> ⚠️ Versions listed here refer only to those available for Ubuntu 22 packages
-as of August 8th, 2025. As new security patches/features are published by their
-authors, and newer Ubuntu image versions are introduced into the EWC, the 
-effective versions installed in your environment might be higher.
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|----------|
+| os_security_group_name | OpenStack security group containing all firewall rules required for HAProxy operation. Example: `ssh-http-https` | `string` | n/a | yes |
+
+## SW Bill of Materials (SBoM)
 
 Third-party components used in the resulting environment.
 
