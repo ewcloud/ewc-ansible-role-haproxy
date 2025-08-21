@@ -1,4 +1,4 @@
-# HA Proxy Ansible Role
+# HAProxy Ansible Role
 
 This repository contains a configuration template 
 (i.e. an [Ansible Role](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html)) 
@@ -11,10 +11,18 @@ The template is designed to:
   workloads and improve website and application performance.
 
 ## Copyright and License
-> 💡 No dependencies are distributed as part of this repository.
+Copyright © EUMETSAT 2025.
 
-See the LICENSE file for licensing information as it pertains to
-files in this repository.
+The provided code and instructions are licensed under the MIT license. 
+They are intended to automate the setup of an environment that includes 
+third-party software components.
+The usage and distribution terms of the resulting environment are 
+subject to the individual licenses of those third-party libraries.
+
+Users are responsible for reviewing and complying with the licenses of
+all third-party components included in the environment.
+
+Contact [EUMETSAT](http://www.eumetsat.int) for details on the usage and distribution terms.
 
 ## Usage
 
@@ -50,7 +58,7 @@ Create an Ansible Playbook file to load your customizations:
 ```yaml
 # playbook.yml
 ---
-- name: Install HA Proxy
+- name: Install HAProxy
   hosts: ha_proxy
   become: true
   become_user: root
@@ -75,17 +83,17 @@ effective versions installed in your environment might be higher.
 
 Third-party components used in the resulting environment.
 
-### Ubuntu 22 Environment
+### Ubuntu 22.04 Environment
 
 The following components will be included in the resulting environment:
 
 | Component | Version | License | Home URL |
 |------|---------|---------|--------------|
-| docker-ce | >=28.3.3 | Apache-2.0 | https://github.com/docker-archive/docker-ce |
-| docker-ce-cli | >=28.3.3 | Apache-2.0 | https://github.com/docker/cli |
-| containerd.io | >=1.7.27  | Apache-2.0 | https://github.com/containerd/containerd |
-| docker-compose-plugin | >=2.39.1 |  Apache-2.0 | https://github.com/docker/compose |
-| haproxy | >=1.16.0 |  Apache-2.0 | https://hub.docker.com/r/thingsboard/haproxy-certbot |
+| docker-ce | 28.3 | Apache-2.0 | https://github.com/docker-archive/docker-ce |
+| docker-ce-cli | 28.3 | Apache-2.0 | https://github.com/docker/cli |
+| containerd.io | 1.7  | Apache-2.0 | https://github.com/containerd/containerd |
+| docker-compose-plugin | 2.39 |  Apache-2.0 | https://github.com/docker/compose |
+| haproxy | 2.2 |  Apache-2.0 | https://hub.docker.com/r/thingsboard/haproxy-certbot |
 
 ## Changelog
 All notable changes (i.e. fixes, features and breaking changes) are documented 
