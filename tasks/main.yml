@@ -41,7 +41,7 @@
 
 - name: Add Docker apt repository
   ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_facts['distribution_release'] }} stable"
     state: present
     filename: docker
 
@@ -117,9 +117,8 @@
       - "OpenStack Security Group: '{{ os_security_group_name }}'"
 
 - name: Temporary setup Trivy for SBOM auto-generation (standalone binary file at /tmp/trivy)
-  ansible.builtin.shell:
+  ansible.builtin.shell: # noqa: command-instead-of-module risky-shell-pipe
     cmd: |
-      set -o pipefail
       curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp
     creates: /tmp/trivy
 

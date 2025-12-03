@@ -52,7 +52,7 @@ to reach the virtual machine you wish to configure:
 ---
 ewcloud:
   hosts:
-    ha_proxy:
+    haproxy:
       ansible_python_interpreter: /usr/bin/python3
       ansible_host: <add the IPV4 address of the target host>
       ansible_ssh_private_key_file: <add the path to local SSH RSA private key file>
@@ -68,7 +68,7 @@ Then, proceed to create an Ansible Playbook file to load your customizations:
 # playbook.yml
 ---
 - name: Install HAProxy
-  hosts: ha_proxy
+  hosts: haproxy
   become: true
   become_user: root
   become_method: ansible.builtin.sudo
