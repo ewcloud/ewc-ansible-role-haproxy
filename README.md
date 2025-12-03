@@ -52,7 +52,7 @@ to reach the virtual machine you wish to configure:
 ---
 ewcloud:
   hosts:
-    ha_proxy:
+    haproxy:
       ansible_python_interpreter: /usr/bin/python3
       ansible_host: <add the IPV4 address of the target host>
       ansible_ssh_private_key_file: <add the path to local SSH RSA private key file>
@@ -68,7 +68,7 @@ Then, proceed to create an Ansible Playbook file to load your customizations:
 # playbook.yml
 ---
 - name: Install HAProxy
-  hosts: ha_proxy
+  hosts: haproxy
   become: true
   become_user: root
   become_method: ansible.builtin.sudo
@@ -90,21 +90,17 @@ ansible-playbook -i inventory.yml playbook.yml
 |------|-------------|------|---------|----------|
 | os_security_group_name | OpenStack security group containing all firewall rules required for HAProxy operation. Example: `ssh-http-https` | `string` | n/a | yes |
 
-## SW Bill of Materials (SBoM)
+# Dependencies
+> 💡 Upon execution, a SBOM (SPDX format) is auto-generated and stored in the VM's file system root directory (see `/sbom.json`).
+The following third-party components will be included in the resulting environment:
 
-Third-party components used in the resulting environment.
-
-### Ubuntu 22.04 Environment
-
-The following components will be included in the resulting environment:
-
-| Component | Version | License | Home URL |
-|------|---------|---------|--------------|
-| docker-ce | 28.3 | Apache-2.0 | https://github.com/docker-archive/docker-ce |
-| docker-ce-cli | 28.3 | Apache-2.0 | https://github.com/docker/cli |
-| containerd.io | 1.7  | Apache-2.0 | https://github.com/containerd/containerd |
-| docker-compose-plugin | 2.39 |  Apache-2.0 | https://github.com/docker/compose |
-| haproxy | 2.2 |  Apache-2.0 | https://hub.docker.com/r/thingsboard/haproxy-certbot |
+| Component | Home URL |
+|------|---------|
+| docker-ce | https://github.com/moby/moby |
+| docker-ce-cli |  https://github.com/docker/cli |
+| containerd.io | https://github.com/containerd/containerd |
+| docker-compose-plugin |  https://github.com/docker/compose |
+| haproxy | https://hub.docker.com/r/thingsboard/haproxy-certbot |
 
 ## Changelog
 All notable changes (i.e. fixes, features and breaking changes) are documented 
