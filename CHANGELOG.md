@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/ewcloud/ewc-ansible-role-haproxy/compare/1.1.0...1.1.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* Portable bash command for Trivy installation ([62cfc53](https://github.com/ewcloud/ewc-ansible-role-haproxy/commit/62cfc53ac9fcd3f9722f0b78d9c518907ade63db))
+
 # [1.1.0](https://github.com/ewcloud/ewc-ansible-role-haproxy/compare/1.0.0...1.1.0) (2025-12-03)
 
 
